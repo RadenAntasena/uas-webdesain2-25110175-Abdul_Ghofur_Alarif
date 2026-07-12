@@ -1,0 +1,44 @@
+:root {
+    --navy : #0f1c3f;      /* Warna biru gelap gaming */
+    --gold : #f2a93b;      /* Warna aksen emas/kuning */
+    --bg-dark: #070d19;    /* Warna latar belakang aplikasi global */
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-link-page { position: relative; }
+
+.nav-link-page::after {
+    content: '';
+    position: absolute; 
+    left: 8px;
+    right: 8px; 
+    bottom: 0;
+    height: 2px; 
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+}
+
+.nav-link-page.active::after { transform: scaleX(1); }
+.nav-link-page:hover::after { transform: scaleX(1); }
+
+.hero-section {
+    background: linear-gradient(rgba(7, 13, 25, 0.299), rgba(15, 28, 63, 0.299)),url(gambar/backgroundps.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 120px 0 100px;
+}
+
+.page-view { display: none; }
+.page-view.active { display: block; animation: fadeup .3s ease; }
+
+@keyframes fadeup {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
